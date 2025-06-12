@@ -1,4 +1,3 @@
-# opencompass/configs/my_eval/my_fin_eval.py
 from opencompass.datasets.myfindataset import MyFinDataset
 from opencompass.models import HuggingFaceCausalLM
 
@@ -13,7 +12,7 @@ datasets = [
         ),
         infer_cfg=dict(
             prompt_template=dict(
-                type='alpaca',
+                type='PromptTemplate',  # 改成基础支持类型
                 template='### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:'
             ),
             retriever=dict(type='zero-shot'),
@@ -30,7 +29,7 @@ datasets = [
         ),
         infer_cfg=dict(
             prompt_template=dict(
-                type='alpaca',
+                type='PromptTemplate',
                 template='### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:'
             ),
             retriever=dict(type='zero-shot'),
@@ -47,7 +46,7 @@ datasets = [
         ),
         infer_cfg=dict(
             prompt_template=dict(
-                type='alpaca',
+                type='PromptTemplate',
                 template='### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:'
             ),
             retriever=dict(type='zero-shot'),
