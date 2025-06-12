@@ -1,3 +1,4 @@
+# opencompass/configs/my_eval/my_fin_eval.py
 from opencompass.datasets.myfindataset import MyFinDataset
 
 datasets = [
