@@ -1,4 +1,4 @@
-from opencompass.configs.my_eval.my_fin_eval import datasets
+from configs.my_eval.my_fin_eval import datasets
 from opencompass.utils.build import build_dataset_from_cfg
 
 for cfg in datasets:
