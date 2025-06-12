@@ -1,8 +1,11 @@
 from mmengine.dataset import BaseDataset
+from opencompass.registry import LOAD_DATASET
 
+@LOAD_DATASET.register_module()
 class MyFinDataset(BaseDataset):
-    def __init__ (self, **kwargs):
-        super ().__init__ (**kwargs)
+    def __init__(self, path: str, **kwargs):
+        self.path = path
+        super().__init__(**kwargs)
 
     def load_data_list(self):
         import json
