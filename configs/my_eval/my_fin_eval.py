@@ -1,5 +1,6 @@
 # opencompass/configs/my_eval/my_fin_eval.py
 from opencompass.datasets.myfindataset import MyFinDataset
+from opencompass.models import HuggingFaceCausalLM
 
 datasets = [
     dict(
@@ -57,7 +58,7 @@ datasets = [
 
 models = [
     dict(
-        type='hf',
+        type=HuggingFaceCausalLM,
         abbr='qwen2.5-1.5b',
         path='Qwen/Qwen2.5-1.5B',
         tokenizer_path='Qwen/Qwen2.5-1.5B',
