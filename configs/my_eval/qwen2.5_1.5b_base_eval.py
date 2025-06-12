@@ -56,7 +56,7 @@ models = [
         max_seq_len=8192,
         batch_size=1,
         run_cfg=dict(num_gpus=1),
-        generation_cfg=dict(
+        gen_cfg=dict(
             do_sample=True,
             temperature=0.7,
             top_p=0.95,
