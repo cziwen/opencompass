@@ -53,15 +53,15 @@ models = [
         path='Qwen/Qwen2.5-1.5B',
         tokenizer_path='Qwen/Qwen2.5-1.5B',
         max_out_len=512,
-        max_seq_len=8192,
+        max_seq_len=8192,        # 官方 8K
         batch_size=1,
         run_cfg=dict(num_gpus=1),
-        gen_cfg=dict(
+        gen_config=dict(         # 字段名必须是 gen_config
             do_sample=True,
             temperature=0.7,
             top_p=0.95,
         ),
-    )
+    ),
 ]
 
 # ---------------------------------------------------------------------
