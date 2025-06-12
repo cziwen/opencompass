@@ -6,13 +6,15 @@ class MyFinDataset(BaseDataset):
     def __init__(self, path: str, **kwargs):
         self.path = path
 
-        # ✅ 移除 BaseDataset 不接受的字段
+        # 移除 BaseDataset 不接受的字段
         kwargs.pop('abbr', None)
         kwargs.pop('reader_cfg', None)
         kwargs.pop('infer_cfg', None)
         kwargs.pop('evaluator', None)
 
         super().__init__(**kwargs)
+
+        self.test = self.load_data_list ()
 
     def load_data_list(self):
         import json
