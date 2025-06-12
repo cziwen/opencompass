@@ -1,5 +1,6 @@
 # configs/my_eval/qwen2p5_1p5b_base_eval.py
 # ================================================================
+from opencompass.datasets import JsonlDataset
 
 # ---------------- 1. 公共评测配置 ----------------
 default_eval_cfg = dict(
@@ -11,7 +12,7 @@ default_eval_cfg = dict(
 # ---------------- 2. 数据集 ----------------
 datasets = [
     dict(
-        type='JSONLDataset',                     # ← 内置通用 JSONL 数据集
+        type=JsonlDataset,                     # ← 内置通用 JSONL 数据集
         abbr='finqa1k_nihar',
         path='MyData/NiharS_financial_qa_1K_alpaca.jsonl',
         reader_cfg=dict(                         # 指定列名即可
