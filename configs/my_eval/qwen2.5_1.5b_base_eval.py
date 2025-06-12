@@ -1,9 +1,6 @@
 # configs/my_eval/qwen2.5_1.5b_base_eval.py
-from mmengine.config import read_base
 
-with read_base():
-    # 这儿保持空即可！不要 import 自定义数据集 / 组件
-    pass
+
 
 
 # ---------------------------------------------------------------------
