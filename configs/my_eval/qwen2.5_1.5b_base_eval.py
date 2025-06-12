@@ -56,11 +56,6 @@ models = [
         max_seq_len=8192,        # 官方 8K
         batch_size=1,
         run_cfg=dict(num_gpus=1),
-        gen_config=dict(         # 字段名必须是 gen_config
-            do_sample=True,
-            temperature=0.7,
-            top_p=0.95,
-        ),
     ),
 ]
 
