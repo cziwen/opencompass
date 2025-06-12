@@ -6,7 +6,6 @@ from opencompass.datasets import JsonlDataset
 default_eval_cfg = dict(
     evaluator=dict(type='RougeEvaluator'),
     pred_role='BOT',
-    pred_postprocessor=dict(type='strip'),
 )
 
 # ---------------- 2. 数据集 ----------------
