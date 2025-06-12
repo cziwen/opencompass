@@ -5,7 +5,7 @@ from opencompass.registry import LOAD_DATASET
 class MyFinDataset(BaseDataset):
     def __init__(self, path: str, **kwargs):
         self.path = path
-        super().__init__(**kwargs)
+        super().__init__(**kwargs)  # ✅ 正确方式
 
     def load_data_list(self):
         import json
