@@ -1,7 +1,7 @@
 from opencompass.datasets.myfindataset import MyFinDataset
 from opencompass.models import HuggingFaceCausalLM
 from opencompass.tasks import OpenICLInferTask, OpenICLEvalTask
-from opencompass.partitioners import NaivePartitioner
+from opencompass.partitioners import NaivePartitioner, NumWorkerPartitioner
 from opencompass.runners import LocalRunner
 from opencompass.openicl.icl_evaluator import RougeEvaluator
 
@@ -87,20 +87,24 @@ models = [
 # -------------------------------
 # ✅ 推理配置
 # -------------------------------
+# infer = dict(
+#     partitioner=dict(type=NaivePartitioner),
+#     runner=dict(type=LocalRunner),
+#     task=dict(type=OpenICLInferTask)
+# )
 infer = dict(
-    partitioner=dict(type=NaivePartitioner),
-    runner=dict(type=LocalRunner),
-    task=dict(type=OpenICLInferTask)
-)
+    partitioner=dict(type=NumWorkerPartitioner, num_worker=1),
+    runner=dict(type=LocalRunner, task=dict(type=OpenICLInferTask)))
+
 
 # -------------------------------
 # ✅ 评估配置
 # -------------------------------
+# eval = dict(
+#     partitioner=dict(type=NaivePartitioner),
+#     runner=dict(type=LocalRunner, task=dict(type=OpenICLEvalTask)),
+# )
 eval = dict(
-    partitioner=dict(type=NaivePartitioner),
-    runner=dict(type=LocalRunner),
-    task=dict(type=OpenICLEvalTask)
-)
+    partitioner=dict(type=NaivePartitioner, n=8),
+    runner=dict(type=LocalRunner, task=dict(type=OpenICLEvalTask)))
 
-infer = infer
-eval = eval
