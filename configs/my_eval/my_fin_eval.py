@@ -100,3 +100,6 @@ eval = dict(
     runner=dict(type=LocalRunner),
     task=dict(type=OpenICLEvalTask)
 )
+
+infer = infer
+eval = eval
