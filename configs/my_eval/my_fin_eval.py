@@ -3,12 +3,13 @@ from opencompass.models import HuggingFaceCausalLM
 from opencompass.tasks import OpenICLInferTask, OpenICLEvalTask
 from opencompass.partitioners import NaivePartitioner
 from opencompass.runners import LocalRunner
+from opencompass.openicl.icl_evaluator import RougeEvaluator
 
 # -------------------------------
 # ✅ 评估配置（共用）
 # -------------------------------
 default_eval_cfg = dict(
-    evaluator=dict(type='ROUGEEvaluator'),      # 使用语言模型输出评估方式
+    evaluator=dict(type=RougeEvaluator),      # 使用语言模型输出评估方式
     pred_role='BOT',                         # 预测角色设置为 BOT（默认）
     pred_postprocessor=dict(type='strip')    # 对模型输出进行简单处理
 )
