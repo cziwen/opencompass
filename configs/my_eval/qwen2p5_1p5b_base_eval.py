@@ -111,8 +111,6 @@ models = [
         max_seq_len=8192,
         batch_size=8,
         run_cfg=dict(num_gpus=1),
-
-        torch_dtype='bfloat16',        # 或写成 'bf16'，取决于显卡是否支持
     ),
 ]
 
