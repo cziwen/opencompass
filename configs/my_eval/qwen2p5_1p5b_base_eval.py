@@ -116,7 +116,7 @@ models = [
 
 # ---------------- 4. 推理 / 评测 Runner ----------------
 infer = dict(
-    partitioner=dict(type='NumWorkerPartitioner', num_worker=1),
+    partitioner=dict(type='NumWorkerPartitioner', num_worker=2),
     runner=dict(type='LocalRunner', task=dict(type='OpenICLInferTask')),
 )
 
