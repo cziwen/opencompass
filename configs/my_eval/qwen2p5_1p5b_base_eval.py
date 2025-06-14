@@ -44,6 +44,11 @@ datasets = [
         type=JsonlDataset,
         abbr='finqa10k_modified',
         path='MyData/itzme091_financial-qa-10K-modified_alpaca.jsonl',
+        sampler=dict(
+            type='RandomSampler',
+            sample_size=300,   # 随机 300 条
+            seed=42,           # 可复现
+        ),
         reader_cfg=dict (
             input_columns=['instruction', 'input'],
             output_column='output',
@@ -57,6 +62,7 @@ datasets = [
                     '### Response:'
                 ),
             ),
+
             retriever=dict (type='ZeroRetriever'),
             inferencer=dict (
                 type='GenInferencer',
