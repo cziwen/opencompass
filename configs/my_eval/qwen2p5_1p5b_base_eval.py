@@ -108,7 +108,7 @@ models = [
         tokenizer_path='Qwen/Qwen2.5-1.5B',
         max_out_len=512,
         max_seq_len=8192,
-        batch_size=32,
+        batch_size=16,
         run_cfg=dict(num_gpus=1),
     ),
 ]
