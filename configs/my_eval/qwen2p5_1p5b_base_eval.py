@@ -101,26 +101,12 @@ datasets = [
 ]
 
 # ---------------- 3. 模型 ----------------
-# models = [
-#     dict(
-#         type='HuggingFaceCausalLM',
-#         abbr='qwen2.5-1.5b',
-#         path='Qwen/Qwen2.5-1.5B',
-#         tokenizer_path='Qwen/Qwen2.5-1.5B',
-#         tokenizer_kwargs=dict(padding_side='left', truncation_side='left'),
-#         batch_padding=False,
-#         max_out_len=512,
-#         max_seq_len=8192,
-#         batch_size=4,
-#         run_cfg=dict(num_gpus=1),
-#     ),
-# ]
 models = [
     dict(
         type='HuggingFaceCausalLM',
-        abbr='qwen2.5-1.5b-fin',
-        path='Ziwen001/Qwen2.5-1.5B-Fin',
-        tokenizer_path='Ziwen001/Qwen2.5-1.5B-Fin',
+        abbr='qwen2.5-1.5b',
+        path='Qwen/Qwen2.5-1.5B',
+        tokenizer_path='Qwen/Qwen2.5-1.5B',
         tokenizer_kwargs=dict(padding_side='left', truncation_side='left'),
         batch_padding=False,
         max_out_len=512,
@@ -129,6 +115,20 @@ models = [
         run_cfg=dict(num_gpus=1),
     ),
 ]
+# models = [
+#     dict(
+#         type='HuggingFaceCausalLM',
+#         abbr='qwen2.5-1.5b-fin',
+#         path='Ziwen001/Qwen2.5-1.5B-Fin',
+#         tokenizer_path='Ziwen001/Qwen2.5-1.5B-Fin',
+#         tokenizer_kwargs=dict(padding_side='left', truncation_side='left'),
+#         batch_padding=False,
+#         max_out_len=512,
+#         max_seq_len=8192,
+#         batch_size=4,
+#         run_cfg=dict(num_gpus=1),
+#     ),
+# ]
 
 # ---------------- 4. 推理 / 评测 Runner ----------------
 infer = dict(
