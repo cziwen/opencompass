@@ -40,45 +40,15 @@ datasets = [
     #     eval_cfg=default_eval_cfg,
     # ),
     # -------- 数据集 2：10K-modified ----------
-    # dict (
-    #     type=JsonlDataset,
-    #     abbr='finqa10k_modified',
-    #     path='MyData/itzme091_financial-qa-10K-modified_alpaca.jsonl',
-    #     reader_cfg=dict (
-    #         input_columns=['instruction', 'input'],
-    #         output_column='output',
-    #     ),
-    #     infer_cfg=dict (  # 与上面同一套配置即可
-    #         prompt_template=dict (
-    #             type='PromptTemplate',
-    #             template=(
-    #                 '### Instruction:\n{instruction}\n\n'
-    #                 '### Input:\n{input}\n\n'
-    #                 '### Response:'
-    #             ),
-    #         ),
-    #
-    #         retriever=dict (type='ZeroRetriever'),
-    #         inferencer=dict (
-    #             type='GenInferencer',
-    #             max_out_len=512,
-    #             temperature=0.7,
-    #             top_p=0.95,
-    #             batch_size=16,
-    #         ),
-    #     ),
-    #     eval_cfg=default_eval_cfg,
-    # ),
-    # -------- 数据集 3：10K-virattt ----------
     dict (
         type=JsonlDataset,
-        abbr='finqa10k_virattt',
-        path='MyData/virattt_financial_qa_10K_alpaca.jsonl',
+        abbr='finqa10k_modified',
+        path='MyData/itzme091_financial-qa-10K-modified_alpaca.jsonl',
         reader_cfg=dict (
             input_columns=['instruction', 'input'],
             output_column='output',
         ),
-        infer_cfg=dict (
+        infer_cfg=dict (  # 与上面同一套配置即可
             prompt_template=dict (
                 type='PromptTemplate',
                 template=(
@@ -87,17 +57,47 @@ datasets = [
                     '### Response:'
                 ),
             ),
+
             retriever=dict (type='ZeroRetriever'),
             inferencer=dict (
                 type='GenInferencer',
                 max_out_len=512,
                 temperature=0.7,
                 top_p=0.95,
-                batch_size=4,
+                batch_size=16,
             ),
         ),
         eval_cfg=default_eval_cfg,
     ),
+    # -------- 数据集 3：10K-virattt ----------
+    # dict (
+    #     type=JsonlDataset,
+    #     abbr='finqa10k_virattt',
+    #     path='MyData/virattt_financial_qa_10K_alpaca.jsonl',
+    #     reader_cfg=dict (
+    #         input_columns=['instruction', 'input'],
+    #         output_column='output',
+    #     ),
+    #     infer_cfg=dict (
+    #         prompt_template=dict (
+    #             type='PromptTemplate',
+    #             template=(
+    #                 '### Instruction:\n{instruction}\n\n'
+    #                 '### Input:\n{input}\n\n'
+    #                 '### Response:'
+    #             ),
+    #         ),
+    #         retriever=dict (type='ZeroRetriever'),
+    #         inferencer=dict (
+    #             type='GenInferencer',
+    #             max_out_len=512,
+    #             temperature=0.7,
+    #             top_p=0.95,
+    #             batch_size=4,
+    #         ),
+    #     ),
+    #     eval_cfg=default_eval_cfg,
+    # ),
 ]
 
 # ---------------- 3. 模型 ----------------
