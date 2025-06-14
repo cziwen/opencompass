@@ -11,34 +11,34 @@ default_eval_cfg = dict(
 # ---------------- 2. 数据集 ----------------
 datasets = [
     # -------- 数据集 1：1K ----------
-    # dict(
-    #     type=JsonlDataset,                     # ← 内置通用 JSONL 数据集
-    #     abbr='finqa1k_nihar',
-    #     path='MyData/NiharS_financial_qa_1K_alpaca.jsonl',
-    #     reader_cfg=dict(                         # 指定列名即可
-    #         input_columns=['instruction', 'input'],
-    #         output_column='output',
-    #     ),
-    #     infer_cfg=dict(
-    #         prompt_template=dict(
-    #             type='PromptTemplate',
-    #             template=(
-    #                 '### Instruction:\n{instruction}\n\n'
-    #                 '### Input:\n{input}\n\n'
-    #                 '### Response:'
-    #             ),
-    #         ),
-    #         retriever=dict(type='ZeroRetriever'),
-    #         inferencer=dict(
-    #             type='GenInferencer',
-    #             max_out_len=512,
-    #             temperature=0.7,
-    #             top_p=0.95,
-    #             batch_size=32,
-    #         ),
-    #     ),
-    #     eval_cfg=default_eval_cfg,
-    # ),
+    dict(
+        type=JsonlDataset,                     # ← 内置通用 JSONL 数据集
+        abbr='finqa1k_nihar',
+        path='MyData/NiharS_financial_qa_1K_alpaca.jsonl',
+        reader_cfg=dict(                         # 指定列名即可
+            input_columns=['instruction', 'input'],
+            output_column='output',
+        ),
+        infer_cfg=dict(
+            prompt_template=dict(
+                type='PromptTemplate',
+                template=(
+                    '### Instruction:\n{instruction}\n\n'
+                    '### Input:\n{input}\n\n'
+                    '### Response:'
+                ),
+            ),
+            retriever=dict(type='ZeroRetriever'),
+            inferencer=dict(
+                type='GenInferencer',
+                max_out_len=512,
+                temperature=0.7,
+                top_p=0.95,
+                batch_size=4,
+            ),
+        ),
+        eval_cfg=default_eval_cfg,
+    ),
     # -------- 数据集 2：10K-modified ----------
     # dict (
     #     type=JsonlDataset,
@@ -70,34 +70,34 @@ datasets = [
     #     eval_cfg=default_eval_cfg,
     # ),
     # -------- 数据集 3：10K-virattt ----------
-    dict (
-        type=JsonlDataset,
-        abbr='finqa10k_virattt',
-        path='MyData/virattt_financial_qa_10K_alpaca.jsonl',
-        reader_cfg=dict (
-            input_columns=['instruction', 'input'],
-            output_column='output',
-        ),
-        infer_cfg=dict (
-            prompt_template=dict (
-                type='PromptTemplate',
-                template=(
-                    '### Instruction:\n{instruction}\n\n'
-                    '### Input:\n{input}\n\n'
-                    '### Response:'
-                ),
-            ),
-            retriever=dict (type='ZeroRetriever'),
-            inferencer=dict (
-                type='GenInferencer',
-                max_out_len=512,
-                temperature=0.7,
-                top_p=0.95,
-                batch_size=4,
-            ),
-        ),
-        eval_cfg=default_eval_cfg,
-    ),
+    # dict (
+    #     type=JsonlDataset,
+    #     abbr='finqa10k_virattt',
+    #     path='MyData/virattt_financial_qa_10K_alpaca.jsonl',
+    #     reader_cfg=dict (
+    #         input_columns=['instruction', 'input'],
+    #         output_column='output',
+    #     ),
+    #     infer_cfg=dict (
+    #         prompt_template=dict (
+    #             type='PromptTemplate',
+    #             template=(
+    #                 '### Instruction:\n{instruction}\n\n'
+    #                 '### Input:\n{input}\n\n'
+    #                 '### Response:'
+    #             ),
+    #         ),
+    #         retriever=dict (type='ZeroRetriever'),
+    #         inferencer=dict (
+    #             type='GenInferencer',
+    #             max_out_len=512,
+    #             temperature=0.7,
+    #             top_p=0.95,
+    #             batch_size=4,
+    #         ),
+    #     ),
+    #     eval_cfg=default_eval_cfg,
+    # ),
 ]
 
 # ---------------- 3. 模型 ----------------
@@ -111,7 +111,7 @@ models = [
         batch_padding=False,
         max_out_len=512,
         max_seq_len=8192,
-        batch_size=16,
+        batch_size=4,
         run_cfg=dict(num_gpus=1),
     ),
 ]
@@ -125,7 +125,7 @@ models = [
 #         batch_padding=False,
 #         max_out_len=512,
 #         max_seq_len=8192,
-#         batch_size=16,
+#         batch_size=4,
 #         run_cfg=dict(num_gpus=1),
 #     ),
 # ]
