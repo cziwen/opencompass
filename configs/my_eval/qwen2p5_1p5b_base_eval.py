@@ -4,7 +4,7 @@ from opencompass.datasets import JsonlDataset
 
 # ---------------- 1. 公共评测配置 ----------------
 default_eval_cfg = dict(
-    evaluator=dict(type='RougeEvaluator'),
+    evaluator=dict(type='RougeEvaluator', use_percent=True),
     pred_role='BOT',
 )
 
