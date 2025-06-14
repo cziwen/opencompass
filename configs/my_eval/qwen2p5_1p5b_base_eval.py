@@ -34,7 +34,7 @@ datasets = [
                 max_out_len=512,
                 temperature=0.7,
                 top_p=0.95,
-                batch_size=16,
+                batch_size=32,
             ),
         ),
         eval_cfg=default_eval_cfg,
@@ -108,7 +108,7 @@ models = [
         tokenizer_path='Qwen/Qwen2.5-1.5B',
         max_out_len=512,
         max_seq_len=8192,
-        batch_size=16,
+        batch_size=32,
         run_cfg=dict(num_gpus=1),
     ),
 ]
