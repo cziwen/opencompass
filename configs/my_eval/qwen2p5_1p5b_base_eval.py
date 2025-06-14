@@ -34,7 +34,7 @@ datasets = [
                 max_out_len=512,
                 temperature=0.7,
                 top_p=0.95,
-                batch_size=32,
+                batch_size=16,
             ),
         ),
         eval_cfg=default_eval_cfg,
